@@ -1,4 +1,4 @@
-module github.com/flopp/go-staticmaps
+module github.com/peltho/go-staticmaps
 
 go 1.23.0
 
@@ -6,6 +6,7 @@ toolchain go1.24.4
 
 require (
 	github.com/flopp/go-coordsparser v0.0.0-20250311184423-61a7ff62d17c
+	github.com/flopp/go-staticmaps v0.0.0-20250629121348-973b17999e19
 	github.com/fogleman/gg v1.3.0
 	github.com/golang/geo v0.0.0-20250627182359-f4b81656db99
 	github.com/jessevdk/go-flags v1.6.1
