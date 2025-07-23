@@ -7,6 +7,7 @@ package sm
 
 import (
 	"bytes"
+	"crypto/tls"
 	"errors"
 	"fmt"
 	"image"
@@ -112,7 +113,13 @@ func (t *TileFetcher) download(url string) ([]byte, error) {
 	req, _ := http.NewRequest("GET", url, nil)
 	req.Header.Set("User-Agent", t.userAgent)
 
-	resp, err := http.DefaultClient.Do(req)
+	client := &http.Client{
+		Transport: &http.Transport{
+			TLSClientConfig: &tls.Config{InsecureSkipVerify: true},
+		},
+	}
+
+	resp, err := client.Do(req)
 	if err != nil {
 		return nil, err
 	}
